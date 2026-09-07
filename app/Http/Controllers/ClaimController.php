@@ -46,7 +46,7 @@ class ClaimController extends Controller
 
         Claim::create($request->all());
 
-        return redirect('/claim')
+        return redirect()->route('author.claim.create')
                 ->with('success','ส่งข้อมูลแจ้งเคลมเรียบร้อย');
     }
 }

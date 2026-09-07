@@ -13,7 +13,7 @@
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="{{ route('home') }}">Kanokporn Jeamthong</a>
+        <a class="navbar-brand" href="{{ route('author.dashboard') }}">Kanokporn Jeamthong</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -21,10 +21,10 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <ul class="navbar-nav ms-auto">
                 <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="{{ route('home') }}">หน้าแรก</a>
-                    <a class="nav-link" href="{{ route('about') }}">เกี่ยวกับเรา</a>
-                    <a class="nav-link" href="{{ route('blog') }}">บทความ</a>
-                    <a class="nav-link" href="{{ route('claim.create') }}">แจ้งเคลมสินค้าชำรุด</a>
+                    <a class="nav-link active" aria-current="page" href="{{ route('author.dashboard') }}">หน้าแรก</a>
+                    <a class="nav-link" href="{{ route('author.about') }}">เกี่ยวกับเรา</a>
+                    <a class="nav-link" href="{{ route('author.blog') }}">บทความ</a>
+                    <a class="nav-link" href="{{ route('author.claim.create') }}">แจ้งเคลมสินค้าชำรุด</a>
                 </div>
             </ul>
         </div>

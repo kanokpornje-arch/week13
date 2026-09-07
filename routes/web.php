@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ClaimController;
+use App\Http\Controllers\HomeController;
 use App\Models\Blog;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
@@ -20,6 +21,7 @@ Route::get('/blog', function () {
 })->name('blog');
 
 Route::prefix('author')->name('author.')->group(function () {
+    Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
     Route::get('/about', [AdminController::class, 'about2'])->name('about');
     Route::get('/blog', [AdminController::class, 'blog2'])->name('blog');
     Route::get('/create', [AdminController::class, 'form'])->name('create');
@@ -28,10 +30,9 @@ Route::prefix('author')->name('author.')->group(function () {
     Route::get('/blog/{blog}/edit', [AdminController::class, 'edit'])->name('edit');
     Route::patch('/blog/{blog}/status', [AdminController::class, 'change'])->name('status');
     Route::delete('/blog/{blog}', [AdminController::class, 'delete'])->name('delete');
+    Route::get('/claim', [ClaimController::class, 'create'])->name('claim.create');
+    Route::post('/claim/store', [ClaimController::class, 'store'])->name('claim.store');
 });
-
-Route::get('/claim', [ClaimController::class, 'create'])->name('claim.create');
-Route::post('/claim/store', [ClaimController::class, 'store'])->name('claim.store');
 
 Route::get('/test-db', function () {
     try {
@@ -44,4 +45,3 @@ Route::get('/test-db', function () {
 });
 
 Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');

@@ -20,7 +20,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light pastel-navbar shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ route('home') }}">
+                <a class="navbar-brand" href="{{ route('author.dashboard') }}">
                     Blog Application
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -31,16 +31,16 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('home') }}">หน้าแรก</a>
+                            <a class="nav-link" href="{{ route('author.dashboard') }}">หน้าแรก</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('about') }}">เกี่ยวกับเรา</a>
+                            <a class="nav-link" href="{{ route('author.about') }}">เกี่ยวกับเรา</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('blog') }}">บทความ</a>
+                            <a class="nav-link" href="{{ route('author.blog') }}">บทความ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('claim.create') }}">แจ้งเคลม</a>
+                            <a class="nav-link" href="{{ route('author.claim.create') }}">แจ้งเคลม</a>
                         </li>
                         @auth
                             <li class="nav-item">

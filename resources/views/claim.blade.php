@@ -18,7 +18,7 @@
             </div>
         @endif
 
-        <form action="{{ route('claim.store') }}" method="POST">
+        <form action="{{ route('author.claim.store') }}" method="POST">
 
             @csrf
 
