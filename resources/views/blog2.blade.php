@@ -4,12 +4,16 @@
 
 @section('content')
 
+    @if (session('success'))
+        <div class="alert alert-success">{{ session('success') }}</div>
+    @endif
+
     @if (count($blog2) > 0)
 
         <div class="d-flex justify-content-between align-items-center my-3">
             <h2 class="text-center">บทความทั้งหมด</h2>
 
-            <a href="{{ route('form') }}" class="btn btn-success">
+            <a href="{{ route('author.create') }}" class="btn btn-success">
                 + เขียนบทความใหม่
             </a>
         </div>
@@ -32,25 +36,30 @@
 
                         <td>
                             @if ($item->status)
-                                <a href="/change/{{ $item->id }}" class="btn btn-success">
-                                    เผยแพร่
-                                </a>
+                                <form method="POST" action="{{ route('author.status', $item) }}" class="d-inline">
+                                    @csrf
+                                    @method('PATCH')
+                                    <button type="submit" class="btn btn-success">เผยแพร่</button>
+                                </form>
                             @else
-                                <a href="/change/{{ $item->id }}" class="btn btn-danger">
-                                    ไม่เผยแพร่
-                                </a>
+                                <form method="POST" action="{{ route('author.status', $item) }}" class="d-inline">
+                                    @csrf
+                                    @method('PATCH')
+                                    <button type="submit" class="btn btn-danger">ไม่เผยแพร่</button>
+                                </form>
                             @endif
                         </td>
 
                         <td>
-                            <a href="/edit/{{ $item->id }}" class="btn btn-warning">
+                            <a href="{{ route('author.edit', $item) }}" class="btn btn-warning">
                                 แก้ไข
                             </a>
 
-                            <a href="/delete/{{ $item->id }}" class="btn btn-danger"
-                                onclick="return confirm('คุณต้องการลบบทความนี้ {{ $item->title }} จริงหรือไม่?')">
-                                ลบ
-                            </a>
+                            <form method="POST" action="{{ route('author.delete', $item) }}" class="d-inline" onsubmit="return confirm('คุณต้องการลบบทความนี้ {{ $item->title }} จริงหรือไม่?')">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">ลบ</button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach
@@ -62,7 +71,7 @@
         <div class="text-center my-5">
             <h2>ไม่มีบทความ</h2>
 
-            <a href="{{ route('form') }}" class="btn btn-success mt-3">
+            <a href="{{ route('author.create') }}" class="btn btn-success mt-3">
                 + เขียนบทความใหม่
             </a>
         </div>

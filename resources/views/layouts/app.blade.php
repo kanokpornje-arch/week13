@@ -20,7 +20,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light pastel-navbar shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ route('home') }}">
                     Blog Application
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -31,7 +31,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/') }}">หน้าแรก</a>
+                            <a class="nav-link" href="{{ route('home') }}">หน้าแรก</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('about') }}">เกี่ยวกับเรา</a>
@@ -39,9 +39,12 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('blog') }}">บทความ</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('claim.create') }}">แจ้งเคลม</a>
+                        </li>
                         @auth
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('blog2') }}">จัดการบทความ</a>
+                                <a class="nav-link" href="{{ route('author.blog') }}">จัดการบทความ</a>
                             </li>
                         @endauth
                     </ul>
@@ -68,8 +71,8 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('form') }}">เขียนบทความ</a>
-                                    <a class="dropdown-item" href="{{ route('blog2') }}">จัดการบทความ</a>
+                                    <a class="dropdown-item" href="{{ route('author.create') }}">เขียนบทความ</a>
+                                    <a class="dropdown-item" href="{{ route('author.blog') }}">จัดการบทความ</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
